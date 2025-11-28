@@ -1,0 +1,1009 @@
+:root {
+    /*TAMAÑO TEXTO*/
+    --titulo: 2.5rem;
+    --subtitulo: 1.5rem;
+    --texto: 1.125rem;
+    --tituloTarjeta: 1.25rem;
+    --tarjeta: 1rem;
+
+    /*TIPO DE LETRA*/
+    --regular: 'Poppins-regular';
+    --bold: 'Poppins-bold';
+
+    /*COLORES*/
+    --blanco: #f3f3f3;
+    --negro: #333;
+    --negro2: #000;
+    --principal: #FF725E;
+    --secundario: #CD4533;
+    --azul: #80C4D3;
+    --azul2: #5A9EB3;
+    --fondoMenu1: #FFD6D0;
+    --fondoMenu2: #ddd;
+    --error: #D0090B;
+
+    /*SOMBRAS*/
+    --sombra1: rgba(0, 0, 0, 0.1);
+    --sombra2: rgba(0, 0, 0, 0.2);
+    --sombra3: rgba(0, 0, 0, 0.3);
+    --sombra4: rgba(0, 0, 0, 0.4);
+    --sombra5: rgba(0, 0, 0, 0.5);
+    --sombraMenu: rgba(255, 255, 255, 0.781);
+}
+
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url(../../../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url(../../../assets/fonts/Poppins-Bold.ttf);
+}
+
+/*----------------------------------------
+GENERAL
+-----------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--regular);
+    background: var(--blanco);
+    color: var(--negro);
+    overflow-x: hidden;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins-bold';
+    font-size: var(--titulo);
+}
+
+a {
+    text-decoration: none;
+    color: var(--negro);
+}
+
+button {
+    font-family: var(--bold);
+    font-size: var(--tarjeta);
+}
+
+.container {
+    flex: 1;
+}
+
+/*----------------------------------------
+MENU
+-----------------------------------------*/
+/* Menú principal */
+.menu-principal {
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--fondoMenu1);
+    border-bottom: 1px solid var(--fondoMenu2);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-family: var(--regular);
+    font-size: var(--texto);
+}
+
+/* Menú fijo */
+.menu-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--sombraMenu);
+    box-shadow: 0 2px 5px var(--sombra1);
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-fijo.visible {
+    top: 0;
+}
+
+.opciones {
+    display: flex;
+    gap: 20px;
+}
+
+.opciones a {
+    text-decoration: none;
+    color: var(--negro);
+    transition: color 0.3s;
+    font-family: var(--regular);
+    font-size: var(--texto);
+}
+
+.opciones a:hover {
+    color: var(--principal);
+}
+
+/* Estilos para los botones dentro de .menu-principal */
+.menu-principal button {
+    background: none;
+    border: none;
+    color: var(--negro);
+    padding: 10px 20px;
+    padding-left: 100px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Hover para los botones normales */
+.menu-principal button:hover {
+    color: var(--principal);
+}
+
+/* Estilos para "Inscribirse" */
+.menu-principal .btn-inscribirse {
+    background-color: var(--secundario);
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón "Inscribirse" */
+.menu-principal .btn-inscribirse:hover {
+    background-color: var(--principal);
+    color: var(--negro);
+}
+
+.logo {
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Estilos generales */
+.menu-hamburguesa {
+    display: none;
+    /* Oculto en pantallas grandes */
+}
+
+/*----------------------------------------
+HEADER
+-----------------------------------------*/
+.hero {
+    background-image: url(../../../assets/img/manospintadasninos.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--negro);
+    text-align: center;
+    position: relative;
+    background-color: var(--sombra4);
+    background-blend-mode: multiply;
+}
+
+.hero-title {
+    font-size: var(--titulo);
+    color: var(--blanco);
+}
+.breadcrumb{
+    color: var(--blanco);
+}
+.breadcrumb a{
+    color: var(--blanco);
+}
+/*----------------------------------------
+CONTACTANOS
+-----------------------------------------*/
+.contact-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.imgcontacto {
+    width: 40%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.contact-form-content {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.parrafocontacto {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imgcontacto {
+        width: 80%;
+    }
+
+    .contact-form-content {
+        width: 100%;
+    }
+}
+
+/*----------------------------------------
+FORMULARIO DE CONTACTO
+-----------------------------------------*/
+.contacto {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Estilos del título */
+.txtcontacto {
+    font-size: var(--titulo);
+    font-family: var(--bold);
+    color: var(--negro);
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+.contact-form {
+    background-color: var(--azul);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px var(--sombra3);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--bold);
+    font-size: var(--tituloTarjeta);
+    margin-bottom: 5px;
+    color: var(--negro);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid var(--azul);
+    border-radius: 4px;
+    font-size: var(--texto);
+    font-family: var(--regular);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--azul2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.error-message {
+    color: var(--negro2);
+    font-size: var(--tarjeta);
+    margin-top: 5px;
+    display: none;
+}
+
+/* Estilos del botón */
+.submit-btn {
+    background-color: var(--principal);
+    color: var(--negro);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: var(--texto);
+    font-family: var(--bold);
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--secundario);
+}
+
+/*----------------------------------------
+TRABAJA CON NOSOTROS
+-----------------------------------------*/
+.work-with-us-section {
+    padding: 40px 60px;
+    border-radius: 10px;
+    margin: 10px auto;
+    max-width: 1200px;
+}
+
+/*Primer texto*/
+.work-with-us-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.work-with-us-title {
+    font-size: var(--titulo);
+    font-family: var(--bold);
+    color: var(--negro);
+    margin-top: 50px;
+}
+
+#nosotros {
+    color: var(--principal)
+}
+
+.work-with-us-text {
+    font-size: var(--texto);
+    color: var(--negro);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 90px;
+    margin-top: 40px;
+    line-height: 2.5;
+    /* Añade más espacio entre líneas */
+}
+
+/*Formulario*/
+.cv-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--principal);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cv-upload-section img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+.cv-upload-form {
+    width: 60%;
+}
+
+.cv-upload-title {
+    font-size: var(--titulo);
+    font-family: var(--bold);
+    color: var(--negro);
+    margin-bottom: 20px;
+}
+
+.cv-upload-form .form-group {
+    margin-bottom: 15px;
+}
+
+.cv-upload-form .form-group label {
+    display: block;
+    font-size: var(--tituloTarjeta);
+    font-family: var(--bold);
+    margin-bottom: 5px;
+}
+
+.cv-upload-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--principal);
+    border-radius: 5px;
+}
+
+.cv-upload-form .submit-btn {
+    padding: 12px 50px;
+    background: var(--azul);
+    color: var(--negro);
+    font-size: var(--texto);
+    font-family: var(--bold);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    width: auto;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: var(--azul2);
+}
+
+.cv-upload-section img {
+    width: 45%;
+}
+
+#botoncv {
+    font-family: var(--regular);
+}
+
+/*----------------------------------------
+FOOTER
+-----------------------------------------*/
+.about-section {
+    position: relative;
+    padding: 40px 30px;
+    text-align: left;
+    background: var(--negro2);
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    width: 50%;
+    font-size: var(--subtitulo);
+    color: var(--blanco);
+    margin-top: 50px;
+}
+
+.contact-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--tarjeta);
+}
+
+.info-item iframe {
+    width: 100%;
+    height: 150px;
+    border: none;
+    border-radius: 10px;
+}
+
+.highlight {
+    color: var(--principal);
+}
+
+.footer {
+    width: 100%;
+    background: var(--negro2);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-divider {
+    height: 2px;
+    background: var(--blanco);
+    width: 50%;
+    margin: 0 auto 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: var(--blanco);
+    font-size: 18px;
+}
+
+.footer-links a {
+    color: var(--blanco);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.copyright {
+    color: var(--blanco);
+    opacity: 0.5;
+    margin-top: 20px;
+}
+
+
+.error-message {
+    color: var(--error);
+    font-size: var(--tarjeta);
+    margin-top: 5px;
+    display: block;
+}
+
+input.error, textarea.error {
+    border: 2px solid var(--error);
+    background-color: var(--blanco);
+}
+
+/*----------------------------------------
+Estilos Responsive para Tablets 
+(768px - 1024px)
+-----------------------------------------*/
+@media (max-width: 768px) {
+    /* Slider */
+    .slider-container {
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .header img {
+        width: 150px;
+    }
+
+    .header-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .hero-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Secciones */
+    .work-with-us-section, .about-section, .footer {
+        padding: 20px;
+    }
+
+    /* Formulario de CV */
+    .cv-upload-section {
+        flex-direction: column;
+    }
+
+    .cv-upload-section img {
+        width: 100%;
+    }
+
+    .cv-upload-form {
+        width: 100%;
+    }
+
+    /* Sobre Nosotros */
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text, .contact-info {
+        width: 100%;
+    }
+
+    .contact-info {
+        margin-top: 20px;
+    }
+
+    /* Formulario de Contacto */
+    .contact-form-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .imgcontacto {
+        width: 180%;
+        height: auto;
+        max-width: 350px;
+        margin-bottom: 15px;
+    }
+
+    .contact-form-content {
+        width: 100%;
+    }
+
+    .contact-form-title {
+        font-size: 40px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .contact-form-text {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /* Menú Principal */
+    .menu-hamburguesa {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--negro);
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        z-index: 1100;
+    }
+
+    .menu-principal {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .botonesMenu {
+        display: flex;
+        /*flex-direction: column;*/
+        gap: 10px;
+    }
+
+    .menu-principal button {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Menú Fijo */
+    .menu-fijo {
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 50px;
+    }
+
+    .opciones {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--sombraMenu);
+        box-shadow: 0 2px 5px var(--sombra1);
+        padding: 10px 0;
+    }
+
+    .opciones a {
+        text-align: center;
+        padding: 10px;
+        display: block;
+    }
+
+    .opciones.activo {
+        display: flex;
+    }
+
+    /* Contacto */
+    .txtcontacto {
+        font-size: 28px;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .form-group input, .form-group textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+    }
+}
+
+/*----------------------------------------
+Estilos Responsive para Móviles 
+(hasta 768px)
+-----------------------------------------*/
+@media (max-width: 480px) {
+    /* Header */
+    .header {
+        padding: 10px;
+    }
+
+    .header img {
+        width: 120px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        height: 200px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .hero-breadcrumb {
+        font-size: 14px;
+    }
+
+    /* Formulario de Contacto */
+    .contact-form-section {
+        padding: 10px;
+    }
+
+    .contact-form {
+        padding: 10px;
+        width: 350px;
+        text-align: center;
+    }
+
+    .contact-form-title {
+        margin-top: 80px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .contact-form-text {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .submit-btn {
+        align-items: center;
+    }
+
+    /* Trabaja con Nosotros */
+    .work-with-us-section {
+        padding: 10px;
+    }
+
+    .work-with-us-title {
+        font-size: 30px;
+    }
+
+    .work-with-us-text {
+        font-size: 18px;
+        padding-top: 10px;
+    }
+
+    /* Formulario de CV */
+    .cv-upload-title {
+        font-size: 20px;
+    }
+
+    .cv-upload-section img {
+        padding-top: -15px;
+    }
+
+    /* Sobre Nosotros */
+    .about-text {
+        font-size: 20px;
+    }
+
+    .imgcontacto {
+        width: 80%;
+        height: auto;
+        max-width: 250px;
+        margin-bottom: 15px;
+        margin-left: -130px;
+    }
+
+    .contact-info {
+        font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .social-icons {
+        flex-direction: row;
+    }
+
+    /* Evitar desbordamiento horizontal */
+    body, html {
+        overflow-x: hidden;
+    }
+
+    /* Contacto */
+    .imgcontacto {
+        height: 50px;
+        margin-left: -130px;
+    }
+
+    .contact-form-title {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    .parrafocontacto {
+        font-size: 18px;
+        margin-bottom: 10px;
+        padding: 0px;
+        text-align: center;
+        margin-left: -5px;
+        margin-right: 25px;
+    }
+}
+
+.menu-fijo.logoR {
+    display: none;
+}
+
+.logoR {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.logoR img {
+    height: 30px;
+}
+
+/*----------------------------------------
+MENU PRINCIPAL - FORMATO VERTICAL EN MÓVILES
+-----------------------------------------*/
+@media screen and (max-width: 768px) {
+
+    .menu-hamburguesa {
+        display: block !important; /* FORZAR que se vea */
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--negro);
+        right: 20px;
+        top: 10px;
+        z-index: 1100;
+    }
+
+    .menu-principal {
+        /*flex-direction: column;*/
+        height: auto;
+        padding: 8px;
+        text-align: center;
+        align-items: stretch;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        display: none;
+    }
+
+    .logoR {
+        display: block;
+    }
+
+    .botonesMenu {
+        display: flex;
+        gap: 10px;
+    }
+
+    .menu-principal button {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/*----------------------------------------
+MENU FIJO - MENÚ HAMBURGUESA EN MÓVILES
+-----------------------------------------*/
+@media screen and (max-width: 768px) {
+    .menu-fijo {
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 50px;
+        top: 0px;
+        left: auto;
+        margin-top: 0;
+    }
+
+    .menu-fijo.logoR {
+        display: block;
+    }
+
+    .menu-hamburguesa {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--negro);
+    }
+
+    .opciones {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--sombraMenu);
+        box-shadow: 0 2px 5px var(--sombra1);
+        padding: 10px 0;
+    }
+
+    .opciones a {
+        text-align: center;
+        padding: 10px;
+        display: block;
+    }
+
+    .opciones.activo {
+        display: flex;
+    }
+}

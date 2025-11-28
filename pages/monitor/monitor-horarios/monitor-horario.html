@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitores</title>
+  <link rel="stylesheet" href="monitor-horario.css">
+  <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+</head>
+<body>
+ 
+     <!-- Header -->
+     <div class="header">
+      <a href="../monitor-areaprivada/monitor-areaprivada.html"><img src="../../../assets/img/logo-sin-fondo.png" alt="Logo" class="logo"></a>
+        <!-- MENU HAMBURGUESA -->
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+
+      <div class="nav">
+          <a href="../monitor-horarios/monitor-horario.html"><div>Horarios</div></a>
+          <a href="../monitor-grupos/monitor-grupo.html"><div>Lista</div></a>
+          <a href="../monitor-actividades/monitor-actividades.html"><div>Actividades</div></a>
+          <a href="../monitor-asesoramiento/monitor-asesoramiento.html"><div>Notificaciones</div></a>
+
+            <!-- Iconos a la derecha -->
+            <div class="icons">
+              <i class="fas fa-bell"></i>
+              <i class="fas fa-envelope"></i>
+              <i class="fas fa-cog"></i>
+          </div>
+          <!-- Nombre de usuario y menú desplegable -->
+          <div class="user-menu menu-container">
+              <button class="user-button menu-button" id="menuBtn">
+                  <img src="../../../assets/icon/perfil.png" alt="Logo">
+                  <span id="nombre_usuario"> </span>
+                  <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-menu menu" id="dropdownMenu">
+                  <button id="logoutBtn">Cerrar sesión</button>
+              </div>
+          </div>
+
+
+      </div>
+  </div>
+
+  <div class="section-title">
+    <h1>HORARIO</h1>
+  </div>
+    <div class="horario">
+      <!-- <img src="../../../assets/img/horario1.png" alt=""> -->
+      <img id="horario-img" src="" alt="Horario">
+      <div class="descarga">
+        <a id="descargar-horario" href="#" download class="boton-descarga">Descargar horario</a>
+      </div>
+    </div>
+
+<script src="monitor-horario.js"></script>
+<script src="cargarmonitor.js"></script>
+</body>
+</html>

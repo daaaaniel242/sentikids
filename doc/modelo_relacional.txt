@@ -1,0 +1,95 @@
+@startuml
+class Administrador {
+    +id_administrador: Integer
+    +nombre_usuario: String
+    +clave_usuario: String
+    +nombre: String
+    +apellidos: String
+    +correo_electronico: String
+}
+
+class Monitor {
+    +id_monitor: Integer
+    +nombre_usuario: String
+    +clave_usuario: String
+    +dni: String
+    +nombre: String
+    +apellidos: String
+    +correo_electronico: String
+    +telefono: String
+}
+
+class Tutor {
+    +id_tutor: Integer
+    +nombre_usuario: String
+    +clave_usuario: String
+    +dni: String
+    +nombre: String
+    +apellidos: String
+    +correo_electronico: String
+    +telefono: String
+    +alta: String
+}
+
+class PersonaConfianza {
+    +id_otro_tutor: Integer
+    +id_tutor: Integer
+    +nombre: String
+    +apellidos: String
+    +telefono: String
+    +dni: String
+}
+
+class Notificacion {
+    +id_notificacion: Integer
+    +id_tutor: Integer
+    +mensaje: String
+    +fecha: Date
+}
+
+class Horario {
+    +id_horario: Integer
+    +nombre: String
+    +url: String
+}
+
+class Grupo {
+    +id_grupo: Integer
+    +id_monitor: Integer
+    +id_horario: Integer
+    +nombre: String
+}
+
+class Hijo {
+    +id_hijo: Integer
+    +id_tutor: Integer
+    +id_grupo: Integer
+    +nombre: String
+    +apellidos: String
+    +fecha_nacimiento: Date
+    +dieta: String
+    +alergias: String
+}
+
+class Multimedia {
+    +id_multimedia: Integer
+    +id_grupo: Integer
+    +url: String
+}
+
+class Actividad {
+    +id_actividad: Integer
+    +nombre: String
+    +descripcion: String
+}
+
+' RELACIONES '
+
+Tutor "1" -- "0..*" PersonaConfianza : tiene
+Tutor "1" -- "0..*" Notificacion : recibe
+Tutor "1" -- "0..*" Hijo : tutor
+Monitor "1" -- "0..*" Grupo : supervisa
+Horario "1" -- "0..*" Grupo : asignado
+Grupo "1" -- "0..*" Hijo : contiene
+Grupo "1" -- "0..*" Multimedia : muestra
+@enduml

@@ -1,0 +1,226 @@
+:root {
+  /*TAMAÑO TEXTO*/
+  --titulo: 1.5rem;
+  --texto: 1.125rem;
+  --mensaje: 1rem;
+
+  /*TIPO DE LETRA*/
+  --regular: 'Poppins-regular';
+  --bold: 'Poppins-bold';
+
+  /*COLORES*/
+  --blanco: #f3f3f3;
+  --negro: #333;
+  --principal: #FF725E;
+  --secundario: #CD4533;
+  --fondo: #f7f7f7;
+  --fondo2: #e0e0e0;
+  --error: #D0090B;
+  --correcto: #50812A;
+
+  /*SOMBRAS*/
+  --sombra1: rgba(0, 0, 0, 0.50);
+}
+
+@font-face {
+  font-family: 'Poppins-regular';
+  src: url(../../../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-bold';
+  src: url(../../../assets/fonts/Poppins-Bold.ttf);
+}
+
+/*----------------------------------------
+    ESTILOS GENERALES
+-----------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--regular);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--blanco);
+}
+
+/*----------------------------------------
+  CONTENEDOR PRINCIPAL
+-----------------------------------------*/
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 420px;
+  background: var(--principal);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--sombra1);
+  text-align: center;
+}
+
+.content {
+  background-color: var(--blanco);
+  padding: 10px;
+}
+
+/* Fondo */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Logo */
+.logo {
+  width: 300PX;
+  margin-bottom: 1.5rem;
+}
+
+/*----------------------------------------
+  ESTILOS DEL FORMULARIO
+-----------------------------------------*/
+h1 {
+  font-size: var(--titulo);
+  font-family: var(--bold);
+  color: var(--negro);
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* GRUPOS DEL FORMULARIO */
+.form__group {
+  text-align: left;
+  position: relative;
+}
+
+.form__label {
+  font-size: var(--texto);
+  color: var(--negro);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.form__input-group, 
+.form__select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* INPUTS Y SELECT */
+.form__input, 
+.form__select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.8px solid var(--negro);
+  border-radius: 6px;
+  transition: border 0.3s ease-in-out;
+}
+
+/* Cuando el campo es incorrecto */
+.form__group-incorrect .form__input,
+.form__group-incorrect .form__select {
+  border-color: var(--error);
+}
+
+/* Cuando el campo es correcto */
+.form__group-correct .form__input,
+.form__group-correct .form__select {
+  border-color: var(--correcto);
+}
+
+/*----------------------------------------
+  ICONO DE VALIDACIÓN (OCULTO POR DEFECTO)
+-----------------------------------------*/
+.form__validation-status {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: none; 
+}
+
+/* Se activa cuando el JS le agrega la clase */
+.form__group-correct .form__validation-status,
+.form__group-incorrect .form__validation-status {
+  display: inline-block;
+}
+
+/*----------------------------------------
+  MENSAJES DE ERROR
+-----------------------------------------*/
+.form__input-error {
+  font-size: var(--mensaje);
+  color: var(--error);
+  display: none; /* Se oculta por defecto */
+}
+
+/* Mostrar error cuando JS lo active */
+.form__input-error-active {
+  display: block;
+}
+
+/*----------------------------------------
+  BOTÓN
+-----------------------------------------*/
+button {
+  background: var(--principal);
+  color: var(--negro);
+  font-size: var(--texto);
+  border: none;
+  font-family: var(--bold);
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--secundario);
+}
+
+/*----------------------------------------
+  MENSAJE DE RESPUESTA
+-----------------------------------------*/
+#respuesta {
+  margin-top: 1rem;
+  font-size: var(--texto);
+  font-family: var(--bold);
+}
+
+/*----------------------------------------
+  RESPONSIVE
+-----------------------------------------*/
+@media screen and (max-width: 480px) {
+  .container {
+      padding: 2rem;
+      width: 95%;
+  }
+
+  h1 {
+      font-size: 1.3rem;
+  }
+
+  .form__input, 
+  .form__select {
+      font-size: 0.9rem;
+  }
+}

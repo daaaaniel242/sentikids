@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
+
+<body>
+    <!-- Primer menú -->
+    <div class="menu-principal">
+        <a href="../home/index.html">
+            <img class="logo" src="../../../assets/img/logo-sin-fondo.png" alt="Logo">
+        </a>
+        <div class="botonesMenu">
+            <button class="btn-area-privada">
+                <a href="../home/logIn.html" target="_blank">Área privada</a>
+            </button>
+            <button class="btn-inscribirse">
+                <a href="../inscribir/inscribir.html">Inscribirse</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- Segundo menú fijo con menú hamburguesa -->
+    <div class="menu-fijo">
+        <img class="logoR" src="../../../assets/img/logo-sin-fondo.png" alt="Logo">
+        <button class="menu-hamburguesa">☰</button>
+        <div class="opciones">
+            <a href="../nosotros/nosotros.html">Nosotros</a>
+            <a href="../campus-expirence/campus-expirence.html">Campus Experience</a>
+            <a href="../precios/precios.html">Precios</a>
+            <a href="../contacto/contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <div class="hero-home">
+        <!-- Contenido del cuadro -->
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Bienvenido a nuestra plataforma</h1>
+            <h2 class="hero-subtitle" id="hero-subtitle">Innovación y tecnología</h2>
+            <p class="hero-text" id="hero-text">Descubre cómo podemos ayudarte a alcanzar tus objetivos con nuestras
+                soluciones avanzadas.</p>
+            <button class="hero-button">Descubre mucho más</button>
+        </div>
+
+        <!-- Botones circulares -->
+        <div class="hero-buttons">
+            <button class="circle-button active" data-index="0"></button>
+            <button class="circle-button" data-index="1"></button>
+            <button class="circle-button" data-index="2"></button>
+        </div>
+
+    </div>
+    <!-- Las Waves -->
+    <section>
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="introduction">
+        <div class="introduction-content">
+            <h2 class="introduction-title">BIENEVENIDOS A <span id="sentikids">SENTIKIDS!</span></h2>
+            <p class="introduction-text">
+                Nos alegramos de verte aquí. SentiKids, con un enfoque Montessori, es un espacio donde tus hijos
+                explorarán con actividades que estimulan su curiosidad y creatividad.
+                Juegos creativos, experiencias prácticas y mucha diversión les esperan para aprender y pasarlo genial.
+            </p>
+        </div>
+        <div class="introduction-image">
+            <img src="../../../assets/img/intro.jpg" alt="Niños jugando y aprendiendo">
+        </div>
+    </section>
+
+    <!-- Actividades -->
+    <div class="main">
+        <h1>NUESTRAS <span id="actividades2" style="color: #80C4D3;"> ACTIVIDADES</span></h1>
+        <ul class="cards">
+            <!-- Carta 1 -->
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img class="img1" src="../../../assets/img/laboratorio_sensorial.jpg"
+                            alt="Imagen niño"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">Laboratorio Sensorial</h2>
+                        <p class="card_text">Los niños explorarán texturas con un fluido no newtoniano y una tabla
+                            sensorial para estimular el tacto.
+                            También experimentarán con diferentes materiales como arena, gel y esponjas para ampliar su
+                            percepción sensorial.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Carta 2 -->
+            <li class="cards_item">
+                <div class="card card-medio">
+                    <div class="card_image"><img src="../../../assets/img/olfato.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">Nariz de Sabueso</h2>
+                        <p class="card_text">Mediante frascos con diferentes olores, los niños y niñas intentarán
+                            adivinar cada aroma usando solo su sentido del olfato. Además,
+                            se les invitará a asociar cada fragancia con recuerdos, fomentando así la conexión entre el
+                            olfato y la memoria.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Carta 3 -->
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="../../../assets/img/explosion_sabores.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">Explosión de Sabores</h2>
+                        <p class="card_text">Con los ojos vendados, los niños probarán distintos alimentos y deberán
+                            identificarlos solo a través del gusto. Se incluirán sabores dulces, salados, ácidos y
+                            amargos para que experimenten la variedad de sensaciones y amplíen su percepción gustativa
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- Botón añadido -->
+        <button class="btn-ver-mas"><a href="../campus-expirence/campus-expirence.html">Ver más actividades</a></button>
+    </div>
+
+    <!-- Galeria de imagenes -->
+    <div class="wrapper1">
+        <h1>GALERÍA DE <span id="imagenes"> IMÁGENES</span></h1>
+        <div class="masonry boxes">
+            <div class="item1" data-category="paisajes">
+                <a href="#"> <img src="../../../assets/img/fotogaleria1.jfif" alt="Foto niño 1"></a>
+            </div>
+            <div class="item1" data-category="abstracto"><a href="#"><img src="../../../assets/img/fotogaleria2.jfif"
+                        alt="" /></a></div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria3.jfif" alt="Foto niño 2" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria4.jfif" alt="Foto niño 3"></a>
+            </div>
+            <div class="item1" data-category="blancoynegro">
+                <a href="#"><img src="../../../assets/img/fotogaleria5.jfif" alt="Foto niño 4" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria6.jfif" alt="Foto niño 5" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria7.jfif" alt="Foto niño 6"></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria8.jfif" alt="Foto niño 7" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria9.jfif" alt="Foto niño 8" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria10.jfif" alt="Foto niño 9"></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria11.jfif" alt="Foto niño 10" /></a>
+            </div>
+            <div class="item1" data-category="paisajes">
+                <a href="#"><img src="../../../assets/img/fotogaleria12.jfif" alt="Foto niño 11" /></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Colabora con nosotros -->
+    <div class="projcard-container">
+        <h1 class="projcard-container-h1">COLABORA CON <span id="nosotros">NOSOTROS</span></h1>
+        <div class="projcard projcard-blue">
+            <div class="projcard-innerbox">
+                <img class="projcard-img" src="../../../assets/img/piscina.jpg" />
+                <div class="projcard-textbox">
+                    <div class="projcard-title">¿Quieres ofrecer un campamento urbano?</div>
+                    <div class="projcard-bar"></div>
+                    <div class="projcard-description">En SentiKids, colaboramos con empresas que buscan organizar experiencias únicas para 
+                        los más pequeños. Si tu empresa quiere contratar nuestros servicios con variedad de actividades, y otros recursos 
+                        ¡nos encantaría saber de ti!Juntos podemos crear experiencias inolvidables mientras promovemos valores 
+                        como el trabajo en equipo, la sostenibilidad y el aprendizaje al aire libre. <br>¡Contáctanos hoy mismo!</div>
+                    <div class="projcard-tagbox">
+                        <span class="projcard-tag"><a href="../contacto/contacto.html">Contáctanos</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inscripciones -->
+    <div class="wrapper">
+        <h1 class="wrappeerh1"><span id="inscripciones"> INSCRIPCIONES</span> 2025 ABIERTAS</h1>
+        <p class="parrafo">¡Únete a nuestro campamento y descubre todas nuestras diferentes actividades! Aprender
+            inglés,
+            divertirse y desarrollar habilidades nunca fue tan emocionante.</p> <br>
+        <button class="btn-inscribir"><a href="../inscribir/inscribir.html" class="textobtn">Inscribirse</a></button>
+    </div>
+
+    <!--Reviws-->
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h1 class="testimonialh1">QUÉ DICEN SOBRE <span class="nosotrospan">NOSOTROS</span></h1>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="customers-testimonials" class="owl-carousel">
+
+                        <!--TESTIMONIAL 1 -->
+                        <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="../../../assets/img/resena2.jpg" alt="">
+                                <p>Mi hijo volvió del campamento Sentikids con una sonrisa de oreja a oreja y una
+                                    confianza increíble en su inglés.
+                                    Me impresionó cómo aprendió sin darse cuenta, simplemente divirtiéndose. Las
+                                    actividades fueron súper variadas,
+                                    desde juegos al aire libre hasta talleres creativos. ¡Definitivamente repetiremos el
+                                    próximo año!</p>
+                            </div>
+                            <div class="testimonial-name">Carolina Méndez</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 1 -->
+                        <!--TESTIMONIAL 2 -->
+                        <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="../../../assets/img/resena1.jpg" alt="">
+                                <p>No puedo expresar lo agradecido que estoy con el equipo de Sentikids. Mis dos hijos
+                                    pasaron una semana increíble,
+                                    aprendiendo inglés de manera natural y haciendo nuevos amigos. Me encantó la
+                                    combinación de aprendizaje y diversión,
+                                    y sobre todo el cariño con el que los monitores trataban a cada niño. ¡Súper
+                                    recomendado!</p>
+                            </div>
+                            <div class="testimonial-name">Andrés Salgado</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 2 -->
+                        <!--TESTIMONIAL 3 -->
+                        <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="../../../assets/img/resena3.jpg" alt="">
+                                <p>Una experiencia maravillosa para los niños. Mi hija era un poco tímida con el inglés,
+                                    pero después del campamento Sentikids,
+                                    ahora lo usa con más seguridad. La inmersión en el idioma es total, y el enfoque
+                                    lúdico hace que aprendan sin presión. Además,
+                                    el entorno es seguro y lleno de energía positiva. ¡Volveremos sin duda!</p>
+                            </div>
+                            <div class="testimonial-name">Valeria Rojas</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 3 -->
+                        <!--TESTIMONIAL 4 -->
+                        <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="../../../assets/img/resena5.jpg" alt="">
+                                <p>Increíble campamento. Mi hijo disfrutó cada momento, desde los juegos interactivos
+                                    hasta los desafíos en equipo. Lo mejor es que los niños
+                                    practican inglés en situaciones reales y cotidianas, lo que hace que lo interioricen
+                                    de forma natural. Además, el personal es de primera,
+                                    muy atento y profesional. ¡Un 10 de 10!</p>
+                            </div>
+                            <div class="testimonial-name">Mateo Fernández</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 4 -->
+                        <!--TESTIMONIAL 5 -->
+                        <div class="item">
+                            <div class="shadow-effect">
+                                <img class="img-circle" src="../../../assets/img/resena4.jpg" alt="">
+                                <p>Mi hijo regresó del campamento Sentikids hablando con más fluidez y con una actitud
+                                    súper positiva hacia el inglés. ¡Y eso que antes le costaba!
+                                    Las actividades son dinámicas, los profesores muy cercanos y el ambiente
+                                    inmejorable. Me encanta que aprendan jugando, sin presión.
+                                    ¡Una experiencia inolvidable!</p>
+                            </div>
+                            <div class="testimonial-name">Sofía Ramírez</div>
+                        </div>
+                        <!--END OF TESTIMONIAL 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+<div class="faq-section">
+    <div class="section-header">
+        <div class="preguntas-frecuentes">
+            <h1 class="preguntasfrecuentesh1">PREGUNTAS <span id="frecuentes">FRECUENTES</span></h1>
+        </div>
+    </div>
+    <div class="faq-container">
+        <!-- Pregunta 1 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Para qué edades está dirigido el campamento?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>El campamento está diseñado para niños de 5 a 6 años, ofreciendo actividades adaptadas a su edad y desarrollo.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Qué tipo de actividades realizan los niños?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Realizamos actividades sensoriales, juegos al aire libre, manualidades, música, experimentos y dinámicas en grupo para potenciar sus habilidades sociales.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿En qué horario se lleva a cabo el campamento?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>El campamento se desarrolla de lunes a viernes, en horario de 9:00 a 16:00, con opción de horario extendido si es necesario.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Quiénes son los monitores del campamento?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Contamos con un equipo de monitores especializados en educación infantil y actividades recreativas, con experiencia en el trabajo con niños.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Qué medidas de seguridad hay en el campamento?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Garantizamos la seguridad de los niños con monitores capacitados en primeros auxilios, espacios adaptados y protocolos de emergencia.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>¿Cómo puedo inscribir a mi hijo?</span>
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Puedes inscribir a tu hijo completando el formulario en nuestra página web o contactándonos directamente para más información.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- FOOTER 1 -->
+    <div class="about-section">
+        <img class="background-image" src="../../../assets/img/niñosaprendiendo.avif" alt="Contact Image">
+
+        <div class="about-content">
+            <div class="about-text">
+                <span>SentiKids, campamento </span><span class="highlight">bilingüe</span>
+                <span> con metodología </span><span class="highlight">Montessori</span><span>, </span>
+                <span class="highlight">comprometido</span><span> con ofrecer lo mejor en educación para enriquecer la
+                    vida de nuestros </span>
+                <span class="highlight">alumnos</span><span> y sus </span><span
+                    class="highlight">familias</span><span>.</span>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="icon" style="margin-top: 10px;"> <img src="../../../assets/icon/carta.png" alt="carta">
+                    </div>
+                    <div>campamentosentikids@gmail.com</div>
+                </div>
+                <div class="info-item">
+                    <div class="icon" style="margin-top: 10px;"><img src="../../../assets/icon/telefono.png" alt="">
+                    </div>
+                    <div>+34 805 029 126</div>
+                </div>
+                <div class="info-item">
+                    <div>
+                        <div class="icon"><img src="../../../assets/icon/ubicacion.png" alt="ubicación"> Madrid</div>
+                        <br>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d144.9537353153166!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d8a32f7f8f8!2sMontessori%20School!5e0!3m2!1sen!2sus!4v1622549400000!5m2!1sen!2sus"
+                            style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER 2 -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-divider"></div>
+            <div class="footer-links">
+                <div><a href="../nosotros/nosotros.html">Nosotros</a></div>
+                <div><a href="../campus-expirence/campus-expirence.html">Campus Expirence</a></div>
+                <div><a href="../precios/precios.html">Precios</a></div>
+                <div><a href="../contacto/contacto.html">Contacto</a></div>
+            </div>
+            <div class="social-icons">
+                <div class="icon">
+                    <a href="https://www.tiktok.com/@senti.kids?_t=ZN-8u4XvLYP9d8&_r=1" target="_blank">
+                        <img src="../../../assets/icon/tik-tok.png" alt="TikTok">
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://www.instagram.com/senti.kids?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank">
+                        <img src="../../../assets/icon/logotipo-de-instagram.png" alt="Instagram">
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://www.facebook.com/share/1BSx2ZYBke/?mibextid=wwXIfr" target="_blank">
+                        <img src="../../../assets/icon/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">Copyright © 2025. All Right Reserved.</div>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

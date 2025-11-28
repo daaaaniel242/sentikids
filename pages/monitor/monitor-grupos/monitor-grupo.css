@@ -1,0 +1,452 @@
+:root {
+    --blanco: #fefefe;
+    --negro: #000;
+    /*TIPO DE LETRA*/
+    --fuente: 'Poppins-regular';
+    /*COLORES*/
+    --principal: #80C4D3;
+    --secundario: #5A9EB3;
+    --blancoSecundario: #e0e0e0;
+    --informacion: #10BFFB;
+    /*SOMBRAS*/
+    --sombraInformacion: rgba(16, 191, 251, 0.5);
+    --sombraOscura: rgba(0, 0, 0, 0.5);
+    --sombraOscura2: rgba(0, 0, 0, 0.3);
+    --sombra: rgba(255, 255, 255, 0.6);
+    --sombraTabla: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --rojoPrincipal: #CD4533;
+    --rojoSecundario: #A32F23;
+  }
+  
+  @font-face {
+    font-family: 'Poppins-regular';
+    src: url(../../../assets/fonts/Poppins-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: 'Poppins-bold';
+    src: url(../../../assets/fonts/Poppins-Bold.ttf);
+  }
+  
+  /* Estilos base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins-regular';
+  }
+  
+  /* Contenedor principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: #CFCFCF;
+    box-shadow: var(--sombraTabla);
+    overflow: hidden;
+  }
+  
+  /* Header */
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    height: 96px;
+    background: #5D828A;
+  }
+  
+  .logo {
+    width: 258px;
+    height: 68px;
+    margin-left: 62px;
+  }
+  
+  /* Menú de navegación */
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding-right: 62px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .nav a div {
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+  }
+  
+  .nav a div:hover {
+    color: #80C4D3;
+  }
+  
+  .menu-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--blanco);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 10;
+  }
+  
+  .menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu button:hover {
+    background: var(--blancoSecundario);
+  }
+  
+  .user-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .user-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  /* Título principal */
+  .header-title {
+    width: 100%;
+    height: 10vh;
+    background: #CFCFCF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title-text {
+    color: var(--negro);
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 4.32px;
+    margin-top: 110px;
+    font-family: 'Poppins-bold';
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: 20px auto;
+    margin-top: 45px;
+    background: none;
+    flex-grow: 1;
+    overflow: hidden ;
+  }
+  
+  thead {
+    background: var(--principal);
+  }
+  
+  tr {
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  td {
+    background-color: #f6f1f1;
+    width: auto;
+  }
+  
+  .header-item {
+    font-size: 1.2rem;
+    color: var(--negro);
+    font-weight: 700;
+    text-align: center;
+    width: 18%;
+  }  
+  .row {
+    text-align: center;
+    width: 100%;
+    height: 6vh;
+  }
+  
+  .row:nth-child(odd) {
+    background: #BACBCF;
+  }
+  
+  .row:nth-child(even) {
+    background: #949494;
+  }
+  
+  /* Popup */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .popup h2 {
+    font-size: 1.8rem;
+    color: var(--negro);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .popup p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .popup p strong {
+    color: rgb(37, 37, 37);
+    font-weight: 600;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    color: var(--negro);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20%;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background 0.3s ease;
+  }
+  
+  /* Overlay */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    animation: fadeInOverlay 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+  }
+  
+  @keyframes fadeOutOverlay {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  /* Estilo para la sección de más información */
+  .more-info {
+    width: 25vw;
+    margin: 15px auto;
+    padding: 15px;
+    background: var(--rojoPrincipal);
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .more-info-text {
+    color: rgb(240, 11, 11);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 4.32px;
+  }
+
+  /* Botón de información */
+  .info-btn {
+    background-color: var(--principal);
+    border-radius: 20%;
+    width: 80px;
+    font-family: 'Poppins-regular';
+    border: none;
+  }
+  
+  .info-btn:hover {
+    background-color: #37707f93 !important;
+    color: var(--blanco);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    border: none;
+  }
+  /* --------------------------------- */
+/* <!-- MENU HAMBURGUESA --> */
+/* --------------------------------- */
+/* Menú Hamburguesa (solo para móvil) */
+.hamburger {
+  display: none; /* Oculto por defecto */
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 4px 0;
+}
+
+/* Menú desplegable */
+.nav.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 96px; /* Ajusta según la altura del header */
+  right: 0;
+  background: #5D828A;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+/* Media Queries para Responsive Design */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  .hamburger {
+      display: flex; /* Mostrar el ícono de hamburguesa */
+  }
+
+  .nav {
+      display: none; /* Ocultar el menú normal */
+  }
+
+  .nav.active {
+      display: flex; /* Mostrar el menú cuando está activo */
+  }
+
+  .logo {
+      margin-left: 10px; /* Margen reducido */
+  }
+  .table{
+    overflow-x: scroll ;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+      height: 80px; /* Altura reducida */
+  }
+
+  .logo {
+      margin-left: 30px; /* Margen ajustado */
+  }
+
+  .nav {
+      padding-right: 30px; /* Padding ajustado */
+      gap: 15px; /* Espacio entre elementos ajustado */
+  }
+
+  .nav a {
+      font-size: 16px; /* Tamaño de fuente ajustado */
+  }
+
+  .nav a div {
+      padding: 8px 12px; /* Padding ajustado */
+  }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+  .header {
+      height: 96px; /* Altura original */
+  }
+
+  .logo {
+      margin-left: 62px; /* Margen original */
+  }
+
+  .nav {
+      padding-right: 62px; /* Padding original */
+      gap: 20px; /* Espacio entre elementos original */
+  }
+
+  .nav a {
+      font-size: 18px; /* Tamaño de fuente original */
+  }
+
+  .nav a div {
+      padding: 10px 15px; /* Padding original */
+  }
+}

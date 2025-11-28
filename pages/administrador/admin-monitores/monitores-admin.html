@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitores</title>
+  <link rel="stylesheet" href="monitores-admin.css">
+  <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <a href="../home/home-admin.html">
+      <img src="../../../assets/img/logo_negro.png" alt="Logo" class="logo">
+    </a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- MENU -->
+    <nav class="menu">
+      <ul>
+        <li><a href="../admin-tutores/tutores-admin.html">Tutores</a></li>
+        <li><a href="../admin-monitores/monitores-admin.html"><b>Monitores</b></a></li>
+        <li><a href="../admin-inscribir-ninho/ninhos-admin.html">Niños/as</a></li>
+        <li><a href="../admin-grupos/grupos-admin.html">Grupos</a></li>
+        <li><button id="btnCerrarSesion"><img class="cerrar-sesion" src="../../../assets/icon/cerrar-sesion.png" alt="Cerrar sesión"></button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PRIMER SECTION -->
+  <div class="section-title">
+    <h1>MONITORES</h1>
+  </div>
+
+  <!-- BARRA DE BUSQUEDA -->
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Buscar por nombre y apellido..." />
+  </div>
+
+  <!-- TABLA -->
+<div class="container">
+  <div class="content">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr class="table-header">
+            <th class="header-item">ID</th>
+            <th class="header-item">Nombre</th>
+            <th class="header-item">Apellidos</th>
+            <th class="header-item">Teléfono</th>
+            <th class="header-item">DNI</th>
+            <th class="header-item">Correo Electrónico</th>
+            <th class="header-item"></th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+  <!--Alert personalizado-->
+  <div id="custom-alert" style="display:none;">
+    <div class="alert-content">
+      <h2>SentiKids dice:</h2>
+      <p id="alert-message"></p>
+      <button id="close-alert">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Confirmación de eliminación personalizada -->
+  <div id="delete-confirm" style="display:none;">
+    <div class="confirm-content">
+      <h2>Confirmación</h2>
+      <p id="confirm-message"></p>
+      <button id="confirm-delete">Sí, eliminar</button>
+      <button id="cancel-delete">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- BOTON -->
+  <div class="button-container">
+    <button class="myBtn button add-button" data-modal-id="modal1">Agregar Monitor</button>
+  </div>
+
+  </div>
+
+
+  <!-- Formulario -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" data-modal-id="modal1">&times;</span>
+        <h2>Agregar Monitor</h2>
+      </div>
+      <div class="modal-body">
+        <form class="popup_body" id="form-add">
+
+          <!--Group: name-->
+          <div class="form__group" id="group__name">
+            <label for="name" class="form__label">Nombre:</label>
+            <div class="form__input-group">
+              <input type="text" class="form__input" name="name" id="name" placeholder="Jose Ramón">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status errors">
+            </div>
+            <p class="form__input-error">El nombre tiene que ser de 2 a 40 dígitos. Solo puede contener
+              letras y espacios.</p>
+          </div>
+
+          <!--Group: surname-->
+          <div class="form__group" id="group__surname">
+            <label for="surname" class="form__label">Apellidos:</label>
+            <div class="form__input-group">
+              <input type="text" class="form__input" name="surname" id="surname" placeholder="Perez Gonzalez">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status errors">
+            </div>
+            <p class="form__input-error">Los apellidos tiene que ser de 2 a 40 dígitos. Solo puede contener
+              letras y espacios.</p>
+          </div>
+
+          <!--Group: phone-->
+          <div class="form__group" id="group__phone">
+            <label for="phone" class="form__label">Teléfono:</label>
+            <div class="form__input-group">
+              <input type="text" class="form__input" name="phone" id="phone" placeholder="659789145">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">El teléfono solo puede contener números y el máximo es de 9
+              números.</p>
+          </div>
+
+          <!--Group: dni-->
+          <div class="form__group" id="group__dni">
+            <label for="dni" class="form__label">DNI:</label>
+            <div class="form__input-group">
+              <input type="text" class="form__input" name="dni" id="dni" placeholder="123456789A">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">El dni solo puede contener números y una letra.</p>
+          </div>
+
+          <!--Group: email-->
+          <div class="form__group" id="group__email">
+            <label for="email" class="form__label">Correo Electrónico:</label>
+            <div class="form__input-group">
+              <input type="email" class="form__input" name="email" id="email" placeholder="correo@correo.com">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">
+              El correo debe contener letras, números y guiones.
+            </p>
+          </div>
+
+          <!--Grupo: usuario-->
+          <div class="form__group" id="group__usuario">
+            <label for="usuario" class="form__label">Usuario</label>
+            <div class="form__input-group">
+              <input type="text" class="form__input" name="usuario" id="usuario" placeholder="john123">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">
+              El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo.
+            </p>
+          </div>
+
+          <!--Grupo: contraseña-->
+          <div class="form__group" id="group__password">
+            <label for="password" class="form__label">Contraseña</label>
+            <div class="form__input-group">
+              <input type="password" class="form__input" name="password" id="password">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">
+              La contaseña tiene que ser de 4 a 12 dígitos.
+            </p>
+          </div>
+
+          <!--Grupo: contraseña 2-->
+          <div class="form__group" id="group__password2">
+            <label for="password2" class="form__label">Repetir contraseña</label>
+            <div class="form__input-group">
+              <input type="password" class="form__input" name="password2" id="password2">
+              <img src="../../../assets/icon/boton-eliminar.png" class="form__validation-status">
+            </div>
+            <p class="form__input-error">
+              Ambas contraseñas deben ser iguales.
+            </p>
+          </div>
+
+          <!--Boton de formlario-->
+          <div class="form__message" id="form__message-add">
+            <p><i class="fa-solid fa-triangle-exclamation"></i><b>Error:</b> Por favor rellene el formulario
+              correctamente.</p>
+          </div>
+          <p></p>
+          <div class="form__group form__group-btn-submit">
+            <button type="submit" class="form__btn button add-button">Agregar Monitor</button>
+            <p class="form__success-message" id="form__success-message-add"><b>Monitor agregado</b></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script src="monitores-admin.js"></script>
+</body>
+
+</html>

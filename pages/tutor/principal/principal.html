@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Privada</title>
+    <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+    <link rel="stylesheet" href="principal.css">
+    <!-- Agrega FontAwesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <!-- Logo a la izquierda -->
+        <div class="logo">
+            <img src="../../../assets/img/logo-sin-fondo.png" alt="Logo">
+        </div>
+
+        <img src="../../../assets/img/sol.png" class="solImg" alt="Logo">
+
+        <!-- Nombre de usuario y menú desplegable -->
+        <div class="user-menu menu-container">
+            <button class="user-button menu-button" id="menuBtn">
+                <img src="../../../assets/icon/perfil.png" alt="Logo">
+                <span id="nombre_tutor">Nombre de Usuario</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu menu" id="dropdownMenu menu">
+                <button id="editProfileBtn">Editar perfil</button>
+                <!--<button id="closeAccountBtn">Cerrar sesión</button> -->
+                <button id="closeAccountBtn" class="cerrar-sesion">Cerrar sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Contenedor izquierdo -->
+        <div class="left-container">
+            <div class="left-container-top">
+                <button class="menu-button first">General</button>
+                <button class="menu-button nombre_hijo">Nombre Hijo</button>
+                <button class="menu-button last">Mis Personas de Confianza</button>
+            </div>
+
+            <div class="left-container-botton">
+                <button class="menu-button first" id="newChildBtn">+ Añadir otro Niño/a</button>
+                <button class="menu-button last" id="newTrustBtn">+ Añadir Persona de Confianza</button>
+                <!-- <button class="menu-button">Horario</button> -->
+            </div>
+        </div>
+
+        <div class="right-container" id="right-container">
+            <!-- Información predefinida; inicialmente oculta -->
+            <div class="infoChild" style="display:none;">
+                <h3 class="nombreTitulo"></h3>
+                <p class="textoAlergias"></p>
+                <textarea class="textAreaAlergias" rows="4" cols="50"></textarea>
+                <p class="grupo"></p>
+                <p class="monitorInfo"></p>
+                <a class="fotosGrupo" target="_blank"></a>
+                <!-- <img class="horarioImg" style="width:400px; margin-top:10px;" alt="Horario del grupo" /> -->
+
+                <button class="abrirHorario" id="abrirHorario">Horario</button>
+                <button class="abrirHorario" id="abrirHorario">Horario</button>
+            </div>
+            <div class="infoTrust" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <h2>Ajustes de la cuenta</h2>
+            <div class="form-container">
+                <form id="userForm">
+                    <h2>Información Básica</h2>
+                    <div class="input-grid">
+                        <div class="input-field">
+                            <input type="text" id="name" name="nombre" placeholder="" disabled>
+                            <label for="name">Nombre</label>
+                            <span class="error hidden" id="nameError">Por favor, introduce un nombre válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="lastName" name="apellidos" placeholder="" disabled>
+                            <label for="lastName">Apellidos</label>
+                            <span class="error hidden" id="lastNameError">Por favor, introduce un apellido
+                                válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="dni" name="dni" placeholder="" disabled>
+                            <label for="dni">DNI</label>
+                            <span class="error hidden" id="dniError">Por favor, introduce un DNI válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" id="email" name="email" placeholder="">
+                            <label for="email">Correo*</label>
+                            <span class="error hidden" id="emailError">Por favor, introduce un correo válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="tel" id="tel" name="tel" placeholder="">
+                            <label for="tel">Telefono*</label>
+                            <span class="error hidden" id="telError">Por favor, introduce un teléfono válido.</span>
+                        </div>
+                    </div>
+
+                    <h2>Detalles de inicio de sesión</h2>
+                    <div>
+                        <div class="input-grid">
+                            <div class="input-field">
+                                <input type="text" id="user" name="usuario" placeholder="" disabled>
+                                <label for="user">Usuario</label>
+                            </div>
+                        </div>
+                        <button type="button" id="passwordButton" class="cambiarContra">Cambiar contraseña</button>
+
+                        <div id="newPassContainer" class="hidden">
+                            <div class="input-grid">
+                                <div class="input-field">
+                                    <input type="password" id="lastPassword" name="lastPassword" placeholder="">
+                                    <label for="lastPassword">Anterior contraseña</label>
+                                    <span class="error hidden" id="lastPasswordError">Por favor, introduce tu contraseña
+                                        anterior.</span>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" id="password" name="password" placeholder="">
+                                    <label for="password">Nueva contraseña</label>
+                                    <span class="error hidden" id="passwordError">Por favor, introduce una contraseña
+                                        válida.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Tus hijos</h2>
+                    <div id="childrenContainer"></div>
+
+                    <span id="AjustesError" class="error hidden"></span>
+                </form>
+                <div class="button-group">
+                    <form id="deleteAccountForm">
+                        <button type="submit" id="deleteAccountBtn">Borrar cuenta</button>
+                    </form>
+                    <button id="closePopupBtn">Cancelar</button>
+                    <form id="saveChangesForm" class="saveChangesForm">
+                        <button type="submit">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Añadir Niño/a-->
+    <div class="popup-overlay2" id="popupOverlay2">
+        <div class="popup" id="popup2">
+            <h2>Añadir nuevo niño/a</h2>
+            <div class="form-container">
+                <form id="userForm_hijo">
+                    <h2>Información Básica</h2>
+                    <div class="input-grid">
+                        <div class="input-field">
+                            <input type="text" id="name2" name="nombre" placeholder="">
+                            <label for="name">Nombre*</label>
+                            <span class="error hidden" id="name2Error">Por favor, introduce un nombre válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="lastName2" name="apellidos" placeholder="">
+                            <label for="lastName">Apellidos*</label>
+                            <span class="error hidden" id="lastName2Error">Por favor, introduce un apellido
+                                válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="date" id="childAge" name="childAge" placeholder=""><br>
+                            <label for="childAge" id="childAge">Fecha de Nacimiento*</label>
+                            <span class="error hidden" id="childAgeError">Por favor, introduce una fecha válida.</span>
+                        </div>
+                    </div>
+
+                    <h2>Detalles adicionales</h2>
+                    <div>
+                        <label for="diet">Dieta</label>
+                    <select id="diet" name="diet[]">
+                        <option value="none">Sin restricciones</option>
+                        <option value="gluten-free">Sin gluten</option>
+                        <option value="dairy-free">Sin lácteos</option>
+                    </select><br>
+
+                    <label for="allergies">Alergias o condiciones médicas</label>
+                    <textarea id="allergies" name="allergies[]"></textarea><br>
+
+                    <span id="AjustesError2" class="error hidden"></span>
+                    </div>
+                </form>
+
+                <div class="button-group">
+                    <button id="closePopupBtn2">Cancelar</button>
+                    <form id="saveChangesForm2" class="saveChangesForm">
+                        <button type="submit">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Añadir Persona de Confianza-->
+    <div class="popup-overlay3" id="popupOverlay3">
+        <div class="popup" id="popup3">
+            <h2>Añadir nueva Persona de Confianza</h2>
+            <div class="form-container">
+                <form id="userForm_pc">
+                    <h2>Información Básica</h2>
+                    <div class="input-grid">
+                        <div class="input-field">
+                            <input type="text" id="name3" name="nombre2" placeholder=""><br>
+                            <label for="name2">Nombre</label>
+                            <span class="error hidden" id="name3Error">Por favor, introduce un nombre válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="lastName3" name="apellidos2" placeholder=""><br>
+                            <label for="lastName2">Apellidos</label>
+                            <span class="error hidden" id="lastName3Error">Por favor, introduce un apellido
+                                válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="dni3" name="dni2" placeholder=""><br>
+                            <label for="dni2">DNI</label>
+                            <span class="error hidden" id="dni3Error">Por favor, introduce un dni válido.</span>
+                        </div>
+                        <div class="input-field">
+                            <input type="tel2" id="tel3" name="telefono2" placeholder=""><br>
+                            <label for="tel2">Telefono</label>
+                            <span class="error hidden" id="tel3Error">Por favor, introduce un telefono válido.</span>
+                        </div>
+                    </div>
+
+                    <span id="AjustesError3" class="error hidden"></span>
+                </form>
+
+                <div class="button-group">
+                    <button id="closePopupBtn3">Cancelar</button>
+                    <form id="saveChangesForm3" class="saveChangesForm">
+                        <button type="submit">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="principal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,577 @@
+:root {
+    /*TAMAÑO TEXTO*/
+    --titulo: 2.5rem;
+    --subtitulo: 1.5rem;
+    --texto: 1.125rem;
+    --tituloTarjeta: 1.25rem;
+    --tarjeta: 1rem;
+
+    /*TIPO DE LETRA*/
+    --regular: 'Poppins-regular';
+    --bold: 'Poppins-bold';
+
+    /*COLORES*/
+    --blanco: #f3f3f3;
+    --negro: #333;
+    --negro2: #000;
+    --principal: #FF725E;
+    --secundario: #CD4533;
+    --azul: #80C4D3;
+    --fondoMenu1: #FFD6D0;
+    --fondoMenu2: #ddd;
+
+    /*SOMBRAS*/
+    --sombra1: rgba(0, 0, 0, 0.1);
+    --sombra2: rgba(0, 0, 0, 0.2);
+    --sombra3: rgba(0, 0, 0, 0.3);
+    --sombra4: rgba(0, 0, 0, 0.4);
+    --sombra5: rgba(0, 0, 0, 0.5);
+    --sombraMenu: rgba(255, 255, 255, 0.781);
+}
+
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url(../../../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url(../../../assets/fonts/Poppins-Bold.ttf);
+}
+
+/*----------------------------------------
+GENERAL
+-----------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--regular);
+    background: var(--blanco);
+    color: var(--negro);
+    overflow-x: hidden;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins-bold';
+}
+
+a {
+    text-decoration: none;
+    color: var(--negro);
+}
+
+button {
+    font-family: var(--bold);
+    font-size: var(--tarjeta);
+}
+
+/*----------------------------------------
+MENU
+-----------------------------------------*/
+/* Menú principal */
+.menu-principal {
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--fondoMenu1);
+    border-bottom: 1px solid var(--fondoMenu2);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-family: var(--regular);
+    font-size: var(--texto);
+}
+
+/* Menú fijo */
+.menu-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--sombraMenu);
+    box-shadow: 0 2px 5px var(--sombra1);
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    transition: top 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-fijo.visible {
+    top: 0;
+}
+
+.opciones {
+    display: flex;
+    gap: 20px;
+}
+
+.opciones a {
+    text-decoration: none;
+    color: var(--negro);
+    transition: color 0.3s;
+    font-family: var(--regular);
+    font-size: var(--texto);
+}
+
+.opciones a:hover {
+    color: var(--principal);
+}
+
+/* Estilos para los botones dentro de .menu-principal */
+.menu-principal button {
+    background: none;
+    border: none;
+    color: var(--negro);
+    padding: 10px 20px;
+    padding-left: 100px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Hover para los botones normales */
+.menu-principal button:hover {
+    color: var(--principal);
+}
+
+/* Estilos para "Inscribirse" */
+.menu-principal .btn-inscribirse {
+    background-color: var(--secundario);
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón "Inscribirse" */
+.menu-principal .btn-inscribirse:hover {
+    background-color: var(--principal);
+    color: var(--negro);
+}
+
+.logo {
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Estilos generales */
+.menu-hamburguesa {
+    display: none; /* Oculto en pantallas grandes */
+}
+
+/*----------------------------------------
+HEADER
+-----------------------------------------*/
+.hero {
+    background-image: url(../../../assets/img/campus-expirence.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--negro);
+    text-align: center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4); /* Color oscuro */
+    background-blend-mode: multiply; /* Mezcla la imagen con el color de fondo */
+}
+
+.hero-title {
+    font-size: var(--titulo);
+    color: var(--blanco);
+}
+.breadcrumb{
+    color: var(--blanco);
+}
+.breadcrumb a{
+    color: var(--blanco);
+}
+
+/*----------------------------------------
+TITULO
+-----------------------------------------*/
+.main h1 {
+    font-size: var(--titulo);
+    text-align: center;
+}
+
+#main-title {
+    color: var(--principal);
+}
+
+/*----------------------------------------
+CARTAS
+-----------------------------------------*/
+img {
+    height: fit-content;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.img1 {
+    height: 222px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card_image {
+    max-height: 50%;
+}
+
+.cards_item {
+    display: flex;
+    padding: 1rem;
+}
+
+.card {
+    background-color: var(--blanco);
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px var(--sombra3);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px var(--sombra5);
+}
+
+.card_content {
+    padding: 1rem;
+    height: 50%;
+    background: linear-gradient(to bottom right, var(--principal) 70%, var(--secundario) 100%);
+}
+
+.card_title {
+    color: var(--negro);
+    font-size: var(--tituloTarjeta);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0px;
+}
+
+.card_text {
+    color: var(--negro);
+    font-size: var(--tarjeta);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+/*----------------------------------------
+FOOTER
+-----------------------------------------*/
+.about-section {
+    position: relative;
+    padding: 40px 30px;
+    text-align: left;
+    background: var(--negro2);
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    width: 50%;
+    font-size: var(--subtitulo);
+    color: var(--blanco);
+    margin-top: 50px;
+}
+
+.contact-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--tarjeta);
+}
+
+.info-item iframe {
+    width: 100%;
+    height: 150px;
+    border: none;
+    border-radius: 10px;
+}
+
+.highlight {
+    color: var(--principal);
+}
+
+.footer {
+    width: 100%;
+    background: var(--negro2);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-divider {
+    height: 2px;
+    background: var(--blanco);
+    width: 50%;
+    margin: 0 auto 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: var(--blanco);
+    font-size: 18px;
+}
+
+.footer-links a {
+    color: var(--blanco);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.copyright {
+    color: var(--blanco);
+    opacity: 0.5;
+    margin-top: 20px;
+}
+
+/*----------------------------------------
+Estilos Responsive para Tablets 
+(768px - 1024px)
+-----------------------------------------*/
+/*CARTAS*/
+@media (min-width: 40rem) {
+    .cards_item {
+        width: 50%;
+    }
+
+}
+
+/* Footer */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 20px;
+    }
+
+    .footer {
+        padding: 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text, .contact-info {
+        width: 100%;
+    }
+}
+
+
+/*----------------------------------------
+Estilos Responsive para Móviles 
+(hasta 768px)
+-----------------------------------------*/
+/*CARTAS*/
+@media (min-width: 56rem) {
+    .cards_item {
+        width: 33.3333%;
+    }
+}
+
+/*FOOTER*/
+@media (max-width: 480px) {
+
+    .contact-info {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .about-text {
+        font-size: 20px;
+    }
+
+    .footer {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .social-icons {
+        flex-direction: row;
+    }
+}
+
+
+.menu-fijo.logoR {
+    display: none;
+}
+
+.logoR {
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.logoR img {
+    height: 30px;
+}
+
+/*----------------------------------------
+MENU PRINCIPAL - FORMATO VERTICAL EN MÓVILES
+-----------------------------------------*/
+@media screen and (max-width: 768px) {
+
+    .menu-hamburguesa {
+        display: block !important; /* FORZAR que se vea */
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--negro);
+        right: 20px;
+        top: 10px;
+        z-index: 1100;
+    }
+
+    .menu-principal {
+        flex-direction: column;
+        height: auto;
+        padding: 8px;
+        text-align: center;
+        align-items: stretch;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        display: none;
+    }
+
+    .logoR {
+        display: block;
+    }
+
+    .botonesMenu {
+        display: flex;
+        gap: 10px;
+    }
+
+    .menu-principal button {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/*----------------------------------------
+MENU FIJO - MENÚ HAMBURGUESA EN MÓVILES
+-----------------------------------------*/
+@media screen and (max-width: 768px) {
+    .menu-fijo {
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        height: 50px;
+        top: 0px;
+        left: auto;
+        margin-top: 0;
+    }
+
+    .menu-fijo.logoR {
+        display: block;
+    }
+
+    .menu-hamburguesa {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--negro);
+    }
+
+    .opciones {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--sombraMenu);
+        box-shadow: 0 2px 5px var(--sombra1);
+        padding: 10px 0;
+    }
+
+    .opciones a {
+        text-align: center;
+        padding: 10px;
+        display: block;
+    }
+
+    .opciones.activo {
+        display: flex;
+    }
+}

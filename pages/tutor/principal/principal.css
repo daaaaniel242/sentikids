@@ -1,0 +1,882 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --success: #50812A;
+    --information: #6291E8;
+    --warning: #ffcd2b;
+    --error: #F66060;
+    --background: #E5E5E5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+}
+
+/** Menú desplegable **/
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #f0f0f0;
+}
+
+/** Popup **/
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup {
+    max-height: 80vh;  /* Limita la altura para que no llene la pantalla */
+    overflow-y: auto;  /* Activa el scroll si el contenido es largo */
+}
+
+
+.popup-overlay2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup-overlay3 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 9px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    /* text-align: center; */
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.popup h2 {
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.popup button {
+    margin-top: 0px;
+}
+
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 9px;
+    min-width: 300px;
+    max-height: 580px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    /* text-align: center; */
+    position: relative;
+}
+
+/* Estilo personalizado para el scrollbar */
+.popup::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+}
+
+.popup::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista del scrollbar */
+    border-radius: 19px; /* Bordes redondeados */
+}
+
+.popup::-webkit-scrollbar-thumb {
+    background: #888; /* Color del scrollbar */
+    border-radius: 19px; /* Bordes redondeados */
+}
+
+.popup::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del scrollbar al pasar el mouse */
+}
+
+
+/** Formulario dentro del popup **/
+.form-container {
+    width: 100%;
+    padding: 15px;
+}
+
+.form-container h2 {
+    font-size: 20px;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+/* Estilo inputs */
+.input-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px; /* Espacio entre campos */
+}
+
+.input-field input {
+    width: 100%;
+    height: 45px;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 0 12px;
+    border: 2px solid var(--black);
+    background: transparent;
+    outline: none;
+}
+
+.input-field input::placeholder {
+    color: transparent;
+}
+
+.input-field label {
+    position: absolute;
+    top: 15px; /* Posición inicial del label */
+    left: 12px;
+    color: var(--black);
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s;
+    background: var(--white); /* Fondo para que no se superponga con el borde */
+    padding: 0 4px; /* Espacio interno para que no toque el borde */
+}
+
+.input-field input:focus ~ label,
+.input-field input:not(:placeholder-shown) ~ label {
+    top: -8px; /* Mueve el label hacia arriba */
+    font-size: 12px;
+    color: var(--black);
+    background: var(--white); /* Fondo para que no se superponga con el borde */
+}
+
+/*DISABLED*/
+.input-field input:disabled {
+    border-color: rgba(118, 118, 118, 0.3);
+}
+
+
+/* Estilos para inputs, textareas y selects */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    background: var(--white);
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 100px; /* Altura mínima */
+}
+
+select {
+    appearance: none; /* Elimina el estilo por defecto del select */
+    background: var(--white);
+    cursor: pointer;
+}
+
+/* Botón de cerrar */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Estilo place */
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.success {
+    color: green;
+    font-size: 0.9rem;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #5D828A;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons i {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}
+
+.user-menu:hover .dropdown-menu {
+    display: block;
+}
+
+#nombre_tutor{
+    color: white;
+}
+
+/* Estilos para los contenedores principales */
+.main-container {
+    display: flex;
+    gap: 50px; /* Espacio entre los contenedores */
+    padding: 100px;
+    padding-top: 50px;
+}
+
+.right-container {
+    max-height: 400px; /* Altura máxima del contenedor */
+    width: 1400px;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    padding: 10px; /* Espacio interno */
+    /*border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 19px; /* Bordes redondeados */
+    background-color: none; /* Fondo opcional */
+}
+
+.left-container {
+    min-width: none;
+    width: 400px;
+    padding-top: 10px; /* Eliminamos el padding para que no haya huecos */
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container-top {
+    background-color: #fff;
+    border-radius: 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Eliminamos el padding para que no haya huecos */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container-botton {
+    background-color: #fff;
+    border-radius: 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Eliminamos el padding para que no haya huecos */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para los botones del menú izquierdo */
+.left-container .menu-button {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent; /* Sin color de fondo */
+    color: #333; /* Color del texto */
+    border: none;
+    border-radius: 0; /* Sin bordes redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    text-align: left;
+    transition: all 0.3s ease; /* Transición suave */
+    border-left: 3px solid transparent; /* Borde izquierdo transparente */
+}
+
+/* Estilos para el primer boton */
+.left-container .first {
+    border-top-left-radius: 19px; /*bordes redondeados */
+    border-top-right-radius: 19px;
+}
+
+/* Estilos para el ultimo boton */
+.left-container .last {
+    border-bottom-right-radius: 19px; /* bordes redondeados */
+    border-bottom-left-radius: 19px;
+}
+
+/* Borde verde al pasar el ratón */
+.left-container .menu-button:hover {
+    background-color: #bacbcf7a; /* Fondo verde clarito */
+    border-radius: 0;
+}
+
+/* Borde redondito primero */
+.left-container .first:hover {
+    border-top-left-radius: 19px; /*bordes redondeados */
+    border-top-right-radius: 19px;
+}
+
+/* Borde redondito segundo */
+.left-container .last:hover {
+    border-bottom-right-radius: 19px; /* bordes redondeados */
+    border-bottom-left-radius: 19px;
+}
+
+/* Estilo para el botón activo QUE LIO JJJ*/
+.left-container .menu-button.active {
+    border: 2px solid #5D828A; /* Borde completo verde */
+    background-color: #bacbcf7a; /* Fondo verde clarito */
+}
+
+/* Eliminar el espacio entre los botones */
+.left-container .menu-button:not(:last-child) {
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre botones */
+}
+
+/* Estilos para el contenedor de notificaciones */
+.notificaciones-container {
+    max-height: 500px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    padding: 10px; /* Espacio interno */
+    /*border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 19px; /* Bordes redondeados */
+    background-color: none; /* Fondo opcional */
+}
+
+/* Personalización de la barra de scroll */
+.notificaciones-container::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de scroll */
+}
+
+/* Fondo de la barra de scroll */
+.notificaciones-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Barra de scroll (el "thumb") */
+.notificaciones-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color de la barra */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Cambiar el color de la barra al pasar el mouse */
+.notificaciones-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color de la barra al hacer hover */
+}
+
+.notificacion {
+    flex: 1; /* Ocupa el espacio restante */
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Necesario para posicionar el botón de cierre */
+}
+
+.close-button { 
+    float: right;
+    margin-top: -15px; /* Lo sube un poco */
+    margin-right: -8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    color: #000000;
+}
+
+h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+span {
+    font-size: 13px;
+    color: #474747;
+}
+
+.solImg {
+    width: 300px;
+    height: 200px;
+    padding: 0 12px;
+    position: fixed; /* Se mantiene en la misma posición aunque hagas scroll */
+    bottom: 40px; /* Ajusta la distancia desde abajo */
+    left: 30px; /* Ajusta la distancia desde la izquierda */
+    cursor: grab;
+    z-index: -1; /* La coloca detrás de otros elementos */
+}
+
+/* Info niño/a */
+/* Contenedor de información del niño */
+.infoChild {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 19px;
+    /* margin-bottom: 20px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del nombre del niño */
+.infoChild .nombreTitulo {
+    font-size: 24px;
+    color: #22343D;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+/* Subtítulos (Grupo, Monitor, etc.) */
+.infoChild h4 {
+    font-size: 18px;
+    color: #22343D;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Texto del grupo y monitor */
+.infoChild .grupo,
+.infoChild .monitorInfo {
+    font-size: 16px;
+    color: #22343D;
+    margin-bottom: 10px;
+}
+
+/* Textarea para alergias */
+.infoChild .textAreaAlergias {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    margin-bottom: 15px;
+}
+
+/* Enlace de fotos del grupo */
+.infoChild .fotosGrupo {
+    padding: 10px 15px;
+    color: #22343D;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.infoChild {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los textos y otros elementos a la izquierda */
+}
+
+.botones-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribuye los botones */
+    width: 100%; /* Para que ocupen todo el ancho disponible */
+    margin-top: 10px; /* Espacio respecto al textarea */
+}
+
+.actualizarN {
+    margin-right: auto; /* Empuja los otros elementos a la derecha */
+}
+
+.multimedia {
+    display: flex;
+    flex-direction: row;
+}
+
+.horarioButton,
+.fotosGrupo {
+    margin-left: 10px; /* Espacio entre los botones */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .infoChild .nombreTitulo {
+        font-size: 20px;
+    }
+
+    .infoChild h4 {
+        font-size: 16px;
+    }
+
+    .infoChild .grupo,
+    .infoChild .monitorInfo {
+        font-size: 14px;
+    }
+
+    .infoChild .textoAlergias {
+        font-size: 14px;
+    }
+
+}
+
+.fotosGrupo {
+    float: right;
+}
+
+.trusted-item {
+    display: flex;
+    justify-content: space-between; /* Separa texto e icono */
+    align-items: center; /* Alinea verticalmente */
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-image: url('../../../assets/icon/papelera1.png');
+    background-size: cover;
+    display: inline-block;
+}
+
+.delete-icon:hover {
+    background-image: url('../../../assets/icon/papelera2.png'); /* Imagen al pasar el cursor */
+}
+
+button.default {
+    background-color: #ff8c79;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button.default:hover {
+    background-color: #FF725E;
+}
+
+.horarioButton {
+    background-color: #5D828A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.horarioButton:hover {
+    background-color: #4c6e76;
+}
+
+.cambiarContra {
+    width: 200px;
+    background-color: #5D828A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    transition: background 0.3s ease;
+    transform: translateY(-20px); /* Mueve el botón hacia arriba */
+}
+
+button.cambiarContra:hover {
+    background-color: #4c6e76;
+}
+
+
+.trusted-item {
+    flex: 1; /* Ocupa el espacio restante */
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Necesario para posicionar el botón de cierre */
+}
+
+.horarioContainer {
+    background-color: #f9f9f9;
+    padding: 5px;
+    border-radius: 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Necesario para posicionar el botón "Atrás" */
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho disponible */
+    max-width: 800px; /* Ajusta según sea necesario */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Imagen del horario */
+.horarioImg {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 19px;
+    display: block; /* Elimina espacios no deseados debajo de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+}
+
+/* Botón "Atrás" */
+.backButton {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 10px; /* Distancia desde la parte superior */
+    left: 10px; /* Distancia desde la izquierda */
+    padding: 8px 16px;
+    background-color: #6291E8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que el botón esté por encima de la imagen */
+    transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: #5078C1; /* Cambio de color al pasar el mouse */
+}
+
+.child-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacia nombre y papelera */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Línea separadora opcional */
+}
+
+.child-name {
+    font-size: 16px;
+    font-weight: 500;
+    flex-grow: 1; /* Hace que el nombre ocupe todo el espacio posible */
+}
+
+/* BOTONES EDITAR PERFIL */
+.button-group {
+    padding-top: 30px;
+    border: #000000;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#deleteAccountForm {
+    margin-right: auto; /* Empuja los otros botones hacia la derecha */
+}
+
+#deleteAccountBtn {
+    background-color: #CD4533; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#deleteAccountBtn:hover {
+    background-color: #c43e2c; /* Rojo más oscuro al pasar el ratón */
+}
+
+#closePopupBtn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#closePopupBtn2 {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#closePopupBtn3 {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.saveChangesForm {
+    display: flex;
+}
+
+.saveChangesForm button {
+    background-color: #68AEBE; /* Azul */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: 10px; /* Pequeño espacio entre "Cancelar" y "Guardar cambios" */
+}
+
+.saveChangesForm button:hover {
+    background-color: #5495a3; /* Azul más oscuro al pasar el ratón */
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Convierte las columnas en una sola */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .left-container, .right-container {
+        width: 100%; /* Ocupar todo el ancho en móviles */
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-button {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+    .user-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

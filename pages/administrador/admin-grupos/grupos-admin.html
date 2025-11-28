@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos</title>
+    <link rel="stylesheet" href="grupos-admin.css">
+    <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="../home/home-admin.html">
+            <img src="../../../assets/img/logo_negro.png" alt="Logo" class="logo">
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <ul>
+                <li><a href="../admin-tutores/tutores-admin.html">Tutores</a></li>
+                <li><a href="../admin-monitores/monitores-admin.html">Monitores</a></li>
+                <li><a href="../admin-inscribir-ninho/ninhos-admin.html">Niños/as</a></li>
+                <li><a href="../admin-grupos/grupos-admin.html"><b>Grupos</b></a></li>
+                <li><button id="btnCerrarSesion"><img class="cerrar-sesion" src="../../../assets/icon/cerrar-sesion.png" alt="Cerrar sesión"></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PRIMER SECTION -->
+    <div class="section-title">
+        <h1>GRUPOS</h1>
+    </div>
+
+    <!-- TABLA -->
+    <div class="container">
+        <div class="content">
+            <table>
+                <thead>
+                    <tr class="table-header">
+                        <th class="header-item">Identificador</th>
+                        <th class="header-item">Nombre</th>
+                        <th class="header-item">Monitor</th>
+                        <th class="header-item">Nº Niños/as</th>
+                        <th class="header-item"></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <!--Alert personalizado-->
+    <div id="custom-alert" style="display:none;">
+        <div class="alert-content">
+            <h2>SentiKids dice:</h2>
+            <p id="alert-message"></p>
+            <button id="close-alert">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- CAMBIAR MONITOR -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-modal-id="modal2">&times;</span>
+                <h2>Cambiar Monitor</h2>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="search-coach" placeholder="Buscar Monitor" />
+                <div id="search-results-coach"></div>
+                <button id="add-coach" disabled>Realizar Cambio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="grupos-admin.js"></script>
+</body>
+
+</html>

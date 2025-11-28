@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Privada</title>
+    <link rel="stylesheet" href="monitor-areaprivada.css">
+    <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+</head>
+<body>
+    <div class="header">
+        <a href="../monitor-areaprivada/monitor-areaprivada.html"><img src="../../../assets/img/logo-sin-fondo.png" alt="Logo" class="logo"></a>
+        <!-- MENU HAMBURGUESA -->
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="nav">
+            <a href="../monitor-horarios/monitor-horario.html"><div>Horarios</div></a>
+            <a href="../monitor-grupos/monitor-grupo.html"><div>Lista</div></a>
+            <a href="../monitor-actividades/monitor-actividades.html"><div>Actividades</div></a>
+            <a href="../monitor-asesoramiento/monitor-asesoramiento.html"><div>Notificaciones</div></a>
+
+             <!-- Iconos a la derecha -->
+            <div class="icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-envelope"></i>
+                <i class="fas fa-cog"></i>
+            </div>
+            <!-- Nombre de usuario y menú desplegable -->
+            <div class="user-menu menu-container">
+                <button class="user-button menu-button" id="menuBtn">
+                    <img src="../../../assets/icon/perfil.png" alt="Logo">
+                    <span id="nombre_usuario"> </span> <!-- Nombre y apellidos aparecerán aquí -->
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu menu" id="dropdownMenu">
+                    <button id="logoutBtn">Cerrar sesión</button>
+                </div>
+            </div>
+
+                
+
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">EXPLORA Y GESTIONA TODO A TU ALCANCE</div>
+        <div class="content">
+            <a href="../monitor-horarios/monitor-horario.html" class="card-link">
+                <div class="card">
+                    <div class="icon">
+                        <img src="../../../assets/icon/actividades.png" alt="Icono">
+                    </div>
+                    <div class="text">
+                        <h2>Horarios</h2>
+                        <p>Gestión de actividades y horarios, en el portal de actividades puedes informarte sobre las actividades.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="../monitor-grupos/monitor-grupo.html" class="card-link">
+                <div class="card">
+                    <div class="icon">
+                        <img src="../../../assets/icon/grupos.png" alt="Icono">
+                    </div>
+                    <div class="text">
+                        <h2>Visualizar grupos</h2>
+                        <p>Puedes visualizar los grupos correspondientes de las actividades organizadas.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="../monitor-actividades/monitor-actividades.html" class="card-link">
+                <div class="card">
+                    <div class="icon">
+                        <img src="../../../assets/icon/actividadess.png" alt="Icono">
+                    </div>
+                    <div class="text">
+                        <h2>Actividades</h2>
+                        <p>En el portal de actividades se pueden ver las diferentes actividades a realizar.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="../monitor-asesoramiento/monitor-asesoramiento.html" class="card-link">
+                <div class="card">
+                    <div class="icon">
+                        <img src="../../../assets/icon/asesoramiento.png" alt="Icono">
+                    </div>
+                    <div class="text">
+                        <h2>Notificaciones</h2>
+                        <p>En el portal de asesoramiento se pueden realizar feedbacks a los diferentes tutores.</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    <script src="monitor-areaprivada.js"></script>
+</body>
+</html>

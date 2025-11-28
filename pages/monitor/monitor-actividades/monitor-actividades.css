@@ -1,0 +1,361 @@
+:root {
+    /*COLORES*/
+    --blanco: #fefefe;
+    --negro: #000;
+    /*TIPO DE LETRA*/
+    --fuente: 'Poppins-regular';
+    /*SOMBRAS*/
+    --sombra: rgba(255, 255, 255, 0.6);
+    --sombraTabla: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --principal: #80C4D3;
+    --secundario: #5A9EB3;
+    --blancoSecundario: #e0e0e0;
+    --informacion: #10BFFB;
+    --sombraInformacion: rgba(16, 191, 251, 0.5);
+    --sombraOscura: rgba(0, 0, 0, 0.5);
+    --sombraOscura2: rgba(0, 0, 0, 0.3);
+    --rojoPrincipal: #CD4533;
+    --rojoSecundario: #A32F23;
+    --grisFondo: #CFCFCF;
+    --azulHeader: #5D828A;
+    --sombraMenu: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    --fondoCard: white;
+    --bordeCard: #5D828A;
+    --fondoMateriales: #f4f4f4;
+}
+
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url(../../../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url(../../../assets/fonts/Poppins-Bold.ttf);
+}
+
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins-regular', var(--fuente);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background: var(--grisFondo);
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--grisFondo);
+}
+
+/* Header */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    height: 96px;
+    background: var(--azulHeader);
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 258px;
+    height: 68px;
+    margin-left: 62px;
+}
+
+/* Menú de navegación */
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding-right: 62px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.nav a div {
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+}
+
+.nav a div:hover {
+    color: #80C4D3;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--blanco);
+    box-shadow: var(--sombraMenu);
+    border-radius: 5px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: var(--blancoSecundario);
+}
+
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.user-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--negro);
+    margin: 4px 0;
+}
+
+/* Menú desplegable */
+.nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 96px;
+    right: 0;
+    background: var(--azulHeader);
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+/* Media Queries para Responsive Design */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .logo {
+        margin-left: 10px;
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header {
+        height: 80px;
+    }
+
+    .logo {
+        margin-left: 30px;
+    }
+
+    .nav {
+        padding-right: 30px;
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 16px;
+    }
+
+    .nav a div {
+        padding: 8px 12px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .header {
+        height: 96px;
+    }
+
+    .logo {
+        margin-left: 62px;
+    }
+
+    .nav {
+        padding-right: 62px;
+        gap: 20px;
+    }
+
+    .nav a {
+        font-size: 18px;
+    }
+
+    .nav a div {
+        padding: 10px 15px;
+    }
+}
+
+/* Título */
+.header-title {
+    width: 100%;
+    background: var(--grisFondo);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.header-title-text {
+    color: var(--negro);
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Poppins-bold';
+}
+
+/* Actividades */
+.activities-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.activity-card {
+    background: var(--fondoCard);
+    border: 5px solid var(--bordeCard);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.activity-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.activity-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.activity-description {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.activity-materials {
+    width: 100%;
+}
+
+.activity-materials h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.activity-materials ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.activity-materials ul li {
+    background-color: var(--fondoMateriales);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .activities-container {
+        padding: 20px;
+    }
+
+    .activity-card {
+        padding: 15px;
+    }
+
+    .activity-title {
+        font-size: 20px;
+    }
+
+    .activity-description {
+        font-size: 16px;
+    }
+
+    .activity-materials h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .activity-image {
+        height: 150px;
+    }
+}

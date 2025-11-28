@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoramiento</title>
+    <link rel="stylesheet" href="monitor-asesoramiento.css">
+    <link rel="icon" type="image/png" href="../../../assets/img/logo_mano_sin_fondo.png">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <a href="../monitor-areaprivada/monitor-areaprivada.html"><img src="../../../assets/img/logo-sin-fondo.png" alt="Logo" class="logo"></a>
+           <!-- MENU HAMBURGUESA -->
+           <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav">
+            <a href="../monitor-horarios/monitor-horario.html"><div>Horarios</div></a>
+            <a href="../monitor-grupos/monitor-grupo.html"><div>Lista</div></a>
+            <a href="../monitor-actividades/monitor-actividades.html"><div>Actividades</div></a>
+            <a href="../monitor-asesoramiento/monitor-asesoramiento.html"><div>Notificaciones</div></a>
+              <!-- Iconos a la derecha -->
+              <div class="icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-envelope"></i>
+                <i class="fas fa-cog"></i>
+            </div>
+            <!-- Nombre de usuario y menú desplegable -->
+            <div class="user-menu menu-container">
+                <button class="user-button menu-button" id="menuBtn">
+                    <img src="../../../assets/icon/perfil.png" alt="Logo">
+                    <span id="nombre_usuario"> </span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu menu" id="dropdownMenu">
+                    <button id="logoutBtn">Cerrar sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="header-title">
+            <div class="header-title-text">NOTIFICACIONES</div>
+        </div>
+
+         <!-- Botón Crear Notificación -->
+         <div class="create-notification" onclick="openPopup()">
+            <div class="create-notification-text">Crear Notificación</div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="previous-notifications-title">Notificaciones anteriores</div>
+        <div class="notifications-container">
+            <div class="notification-card">
+                <div class="notification-title"> </div>
+                <div class="notification-text"></div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-title">   </div>
+                <div class="notification-text">   </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-title">  </div>
+                <div class="notification-text"> </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-title">  </div>
+                <div class="notification-text"> </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-title">    </div>
+                <div class="notification-text">    </div>
+            </div>
+            <div class="notification-card">
+                <div class="notification-title"> </div>
+                <div class="notification-text">     </div>
+            </div>
+        </div>
+
+       
+
+    </div>
+
+   <!-- Pop-up -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Crear Notificación</h2>
+        <form id="notification-form">
+            <label for="recipient">Seleccione el destinatario:</label>
+            <select id="recipient" name="recipient"> </select>
+
+            <label for="title" >Título:</label>
+            <input type="text" id="title" name="title" required class="titulonoti">
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" cols="40" class="textarea"></textarea>
+            <button type="submit" class="send-btn">Enviar</button>
+        </form>
+        <div id="success-message" class="success-message" style="display: none;">¡Notificación enviada con éxito!</div>
+    </div>
+</div>
+
+
+    <script src="monitor-asesoramiento.js"></script>
+    <script src="guardarnotificacion.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+:root {
+    /*COLORES*/
+    --blanco: #fefefe;
+    --negro: #000;
+    /*TIPO DE LETRA*/
+    --fuente: 'Poppins-regular';
+    /*SOMBRAS*/
+    --sombra: rgba(255, 255, 255, 0.6);
+    --sombraTabla: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --principal: #80C4D3;
+    --secundario: #5A9EB3;
+    --blancoSecundario: #e0e0e0;
+    --informacion: #10BFFB;
+    --sombraInformacion: rgba(16, 191, 251, 0.5);
+    --sombraOscura: rgba(0, 0, 0, 0.5);
+    --sombraOscura2: rgba(0, 0, 0, 0.3);
+    --rojoPrincipal: #CD4533;
+    --rojoSecundario: #A32F23;
+    --grisFondo: #CFCFCF;
+    --azulHeader: #5D828A;
+    --rojoHover: #CD4533;
+    --sombraMenu: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    --fondoCardHover: #FFE5E0;
+    --fondoIcono: rgba(205, 69, 51, 0.80);
+}
+
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url(../../../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url(../../../assets/fonts/Poppins-Bold.ttf);
+}
+
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins-regular', var(--fuente);
+    background: var(--grisFondo);
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: var(--grisFondo);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    height: 96px;
+    background: var(--azulHeader);
+    box-sizing: border-box;
+}
+
+.header img {
+    width: 100%;
+    max-width: 258px;
+    height: auto;
+}
+
+.logo {
+    width: 258px;
+    height: 68px;
+    margin-left: 62px;
+}
+
+/* Menú de navegación */
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-right: 62px;
+}
+
+.nav a {
+    text-align: center;
+    color: var(--negro);
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #80C4D3;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--blanco);
+    box-shadow: var(--sombraMenu);
+    border-radius: 5px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: var(--blancoSecundario);
+}
+
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.user-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--negro);
+    margin: 4px 0;
+}
+
+/* Menú desplegable */
+.nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 96px;
+    right: 0;
+    background: var(--azulHeader);
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+/* Media Queries para Responsive Design */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .logo {
+        margin-left: 10px;
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header {
+        height: 80px;
+    }
+
+    .logo {
+        margin-left: 30px;
+    }
+
+    .nav {
+        padding-right: 30px;
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 16px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    .header {
+        height: 96px;
+    }
+
+    .logo {
+        margin-left: 62px;
+    }
+
+    .nav {
+        padding-right: 62px;
+        gap: 20px;
+    }
+
+    .nav a {
+        font-size: 18px;
+    }
+}
+
+/* Título */
+.title {
+    width: 100%;
+    max-width: 872px;
+    margin: 40px auto 0;
+    color: var(--negro);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    text-align: center;
+    font-family: 'Poppins-bold';
+}
+
+/* Contenido */
+.content {
+    width: 100%;
+    max-width: 902px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Tarjetas */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: var(--fondoCardHover);
+}
+
+.card .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 120px;
+    height: 120px;
+    background: var(--fondoIcono);
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+}
+
+.card:hover .icon {
+    background: var(--rojoPrincipal);
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+}
+
+.card .text {
+    width: 100%;
+    max-width: 636px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+}
+
+.card h2 {
+    color: var(--negro);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+}
+
+.card p {
+    color: var(--negro);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:visited,
+.card-link:link {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+/* Media Queries para tarjetas */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .card p {
+        margin-top: -5px;
+        font-size: 18px;
+    }
+
+    .card .text {
+        align-items: flex-start;
+    }
+
+    .card h2 {
+        font-size: 40px;
+    }
+
+    .card .icon {
+        width: 174px;
+        height: 174px;
+    }
+
+    .card img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .title {
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .content {
+        gap: 60px;
+    }
+}
